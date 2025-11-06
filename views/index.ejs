@@ -1,1 +1,76 @@
-<h1>ROSCENT NKEMJIKA OFUONYE.</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head', {title: 'CSE Motors - Home' }); %>
+</head>
+
+<body>
+    <%- include('partials/header'); %>
+        <%- include('partials/navigation'); %>
+
+            <main class="home-main">
+                <!-- Hero Section -->
+                <section class="hero">
+                    <div class="hero-content">
+                        <h1>Welcome to ROSCENT NKEMJIKA OFUONYE CSE Motors</h1>
+                        <p>Your trusted partner for quality vehicles</p>
+                        <button class="cta-button">View Inventory</button>
+                    </div>
+                </section>
+
+                <!-- Featured Vehicles Section -->
+                <section class="featured-vehicles">
+                    <h2>Featured Vehicles</h2>
+                    <div class="vehicles-grid">
+                        <div class="vehicle-card">
+                            <img src="/images/adventador-tn.jpg" alt="Luxury Sedan" loading="lazy">
+                            <h3>Luxury Sedan</h3>
+                            <p>Experience comfort and style</p>
+                            <span class="price">$32,999</span>
+                        </div>
+                        <div class="vehicle-card">
+                            <img src="/images/adventador.jpg" alt="Family SUV" loading="lazy">
+                            <h3>Family SUV</h3>
+                            <p>Perfect for family adventures</p>
+                            <span class="price">$28,999</span>
+                        </div>
+                        <div class="vehicle-card">
+                            <img src="/images/aerocar-tn.jpg" alt="Sports Coupe" loading="lazy">
+                            <h3>Sports Coupe</h3>
+                            <p>Performance and elegance</p>
+                            <span class="price">$45,999</span>
+                        </div>
+                        <div class="vehicle-card">
+                            <img src="/images/aerocar.jpg" alt="Compact Hatchback" loading="lazy">
+                            <h3>Compact Hatchback</h3>
+                            <p>Efficient and practical</p>
+                            <span class="price">$22,999</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Services Section -->
+                <section class="services">
+                    <h2>Our Services</h2>
+                    <div class="services-grid">
+                        <div class="service-item">
+                            <h3>Car Sales</h3>
+                            <p>Wide selection of new and pre-owned vehicles</p>
+                        </div>
+                        <div class="service-item">
+                            <h3>Financing</h3>
+                            <p>Flexible payment options for every budget</p>
+                        </div>
+                        <div class="service-item">
+                            <h3>Maintenance</h3>
+                            <p>Expert service and maintenance support</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <%- include('partials/footer'); %>
+</body>
+
+</html>

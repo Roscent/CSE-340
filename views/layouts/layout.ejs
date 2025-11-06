@@ -8,7 +8,57 @@
         <%- include('../partials/navigation') %>
 
         <main>
-            <%- body %>
+            <p>This assignment is a review of the concepts, skills and techniques in Web Frontend Development course(s).</p>
+            <div id="hero-area">
+                <img src="/images/mechanic.jpg" alt="A mechanic working on a car" class="hero-image">
+                <div class="call-to-action">
+                    <h2>DMC Delorean</h2>
+                    <p>3 Times Dope</p>
+                    <a href="/images/vehicle/delorean" class="cta-button">Own Today</a>
+                    <p class="disclaimer"><em>*May or may not get you to 88MPH.</em></p>
+                </div>
+            </div>
+            <div id="home-content-grid">
+                <section id="reviews">
+                    <h2>DMC Delorean Reviews</h2>
+                    <ul>
+                        <li>"So fast it's scary." (4/5)</li>
+                        <li>"Coolest car on the road." (4/5)</li>
+                        <li>"I didn't think it could be fixed." (4/5)</li>
+                        <li>"A nice change from the standard fare." (5/5)</li>
+                        <li>"The finish is spectacular." (5/5)</li>
+                    </ul>
+                </section>
+            
+                <div id="extra-links">
+                    <section id="upgrades">
+                        <h2>Delorean Upgrades</h2>
+                        <div class="upgrade-grid">
+                            <a href="/images/upgrade/flux-capacitor" class="link-card">
+                                <img src="/images/upgrade-flux.png" alt="Flux Capacitor icon">
+                                <span>Flux Capacitor</span>
+                            </a>
+                            <a href="/inventory/upgrade/flame-decals" class="link-card">
+                                <img src="/images/upgrade-flame.png" alt="Flame Decals icon">
+                                <span>Flame Decals</span>
+                            </a>
+                            <a href="/images/upgrade/bumper-sticker" class="link-card">
+                                <img src="/images/upgrade-bumper.png" alt="Bumper Sticker icon">
+                                <span>Bumper Sticker</span>
+                            </a>
+                            <a href="/images/upgrade/human-leather-seats" class="link-card">
+                                <img src="/images/upgrade-seats.png" alt="Human Leather Seats icon">
+                                <span>Human Leather Seats</span>
+                            </a>
+                        </div>
+                    </section>
+            
+                    <section id="management-link">
+                        <h2>Inventory Management</h2>
+                        <p><a href="/images/management" title="Inventory Management Area">Manage your inventory here</a>.</p>
+                    </section>
+                </div>
+            </div>
         </main>
 
         <%- include('../partials/footer') %>
