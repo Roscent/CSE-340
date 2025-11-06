@@ -1,76 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="home-layout">
+    <section class="promotional-banner">
+        <div class="promotion-image-container">
+            <h1>Welcome to CSE Motors</h1>
+            <img src="/images/vehicles/batmobile-tn.jpg" alt="A sleek modern car.">
+            <img src="/images/vehicles/adventador.jpg" alt="A sleek car.">
+            <img src="/images/vehicles/aerocar.jpg" alt="modern car.">
+            <img src="/images/vehicles/camaro.jpg" alt="dream car.">
+        </div>
+        <div class="promotion-details">
+            <h2>Delivering Exceptional Vehicles and Service</h2>
+            <div class="callout">
+                <h3>Today's Promotion: 10% Off!</h3>
+                <p>Don't miss out on this limited-time offer. Use code **CSE10** at checkout.</p>
+                <a href="/images" class="cta-button">Buy Now</a>
+            </div>
+        </div>
+    </section>
 
-<head>
-    <%- include('partials/head', {title: 'CSE Motors - Home' }); %>
-</head>
+    <section class="content-sections">
+        <section class="reviews-section">
+            <h2>CSE Motors Reviews</h2>
+            <ul>
+                <li>"Fantastic service, drove off in my dream car!" (<a href="#">Read more</a>)</li>
+                <li>"The best car buying experience I've ever had." (<a href="#">Read more</a>)</li>
+                <li>"Highly recommend CSE Motors for their fair prices." (<a href="#">Read more</a>)</li>
+            </ul>
+        </section>
 
-<body>
-    <%- include('partials/header'); %>
-        <%- include('partials/navigation'); %>
-
-            <main class="home-main">
-                <!-- Hero Section -->
-                <section class="hero">
-                    <div class="hero-content">
-                        <h1>Welcome to ROSCENT NKEMJIKA OFUONYE CSE Motors</h1>
-                        <p>Your trusted partner for quality vehicles</p>
-                        <button class="cta-button">View Inventory</button>
-                    </div>
-                </section>
-
-                <!-- Featured Vehicles Section -->
-                <section class="featured-vehicles">
-                    <h2>Featured Vehicles</h2>
-                    <div class="vehicles-grid">
-                        <div class="vehicle-card">
-                            <img src="/images/adventador-tn.jpg" alt="Luxury Sedan" loading="lazy">
-                            <h3>Luxury Sedan</h3>
-                            <p>Experience comfort and style</p>
-                            <span class="price">$32,999</span>
-                        </div>
-                        <div class="vehicle-card">
-                            <img src="/images/adventador.jpg" alt="Family SUV" loading="lazy">
-                            <h3>Family SUV</h3>
-                            <p>Perfect for family adventures</p>
-                            <span class="price">$28,999</span>
-                        </div>
-                        <div class="vehicle-card">
-                            <img src="/images/aerocar-tn.jpg" alt="Sports Coupe" loading="lazy">
-                            <h3>Sports Coupe</h3>
-                            <p>Performance and elegance</p>
-                            <span class="price">$45,999</span>
-                        </div>
-                        <div class="vehicle-card">
-                            <img src="/images/aerocar.jpg" alt="Compact Hatchback" loading="lazy">
-                            <h3>Compact Hatchback</h3>
-                            <p>Efficient and practical</p>
-                            <span class="price">$22,999</span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Services Section -->
-                <section class="services">
-                    <h2>Our Services</h2>
-                    <div class="services-grid">
-                        <div class="service-item">
-                            <h3>Car Sales</h3>
-                            <p>Wide selection of new and pre-owned vehicles</p>
-                        </div>
-                        <div class="service-item">
-                            <h3>Financing</h3>
-                            <p>Flexible payment options for every budget</p>
-                        </div>
-                        <div class="service-item">
-                            <h3>Maintenance</h3>
-                            <p>Expert service and maintenance support</p>
-                        </div>
-                    </div>
-                </section>
-            </main>
-
-            <%- include('partials/footer'); %>
-</body>
-
-</html>
+        <section class="upgrades-section">
+            <h2>Vehicle Upgrades</h2>
+            <div class="upgrade-grid">
+                <a href="/upgrade/flame" class="upgrade-item">
+                    <img src="/images/upgrades/flame.jpg" alt="Flame Decals">
+                    <span>Flame Decals</span>
+                </a>
+                <a href="/upgrade/bumper-sticker" class="upgrade-item">
+                    <img src="/images/upgrades/bumper_sticker.jpg" alt="Bumper Stickers">
+                    <span>Bumper Stickers</span>
+                </a>
+                <a href="/upgrade/flux-cap" class="upgrade-item">
+                    <img src="/images/upgrades/flux-cap.png" alt="flux Cap">
+                    <span>Flux Cap</span>
+                </a>
+                <a href="/upgrade/hub-cap" class="upgrade-item">
+                    <img src="/images/upgrades/hub-cap.jpg" alt="Custom Hub Cap">
+                    <span>Hub Cap</span>
+                </a>
+            </div>
+        </section>
+    </section>
+</div>
