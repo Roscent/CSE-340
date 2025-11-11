@@ -1,296 +1,372 @@
-/*
-======================================================
-1. GENERAL/RESET STYLES (MOBILE-FIRST BASE)
-======================================================
-*/
-:root {
-    /* Professional and Accessible Color Scheme */
-    --color-primary: #0077b6;
-    /* Bright Blue (for accents, links, buttons) */
-    --color-secondary: #005f73;
-    /* Dark Teal (for header/footer background) */
-    --color-text-dark: #111;
-    /* Black/Near Black */
-    --color-text-light: #fff;
-    /* White */
-    --color-background: #f0f0f0;
-    /* Light Gray */
-    --color-accent-cta: #ee9b00;
-    /* Amber (High contrast CTA) */
-    --font-heading: 'Roboto Slab', serif;
-    --font-body: 'Open Sans', sans-serif;
-}
+ /*
+        ======================================================
+        1. GENERAL/RESET STYLES (MOBILE-FIRST BASE)
+        ======================================================
+        */
+ :root {
+     /* Professional and Accessible Color Scheme */
+     --color-primary: #0077b6;
+     /* Bright Blue (for accents, links, buttons) */
+     --color-secondary: #005f73;
+     /* Dark Teal (for header/footer background) */
+     --color-text-dark: #111;
+     /* Black/Near Black */
+     --color-text-light: #fff;
+     /* White */
+     --color-background: #f0f0f0;
+     /* Light Gray */
+     --color-accent-cta: #ee9b00;
+     /* Amber (High contrast CTA) */
+     --font-heading: 'Roboto Slab', serif;
+     --font-body: 'Open Sans', sans-serif;
+ }
 
-/* Import Google Fonts (assumed to be linked in project setup or added here) */
-/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto+Slab:wght@700&display=swap'); */
+ * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+ body {
+     background-color: var(--color-background);
+     color: var(--color-text-dark);
+     font-family: var(--font-body);
+     line-height: 1.6;
+ }
 
-body {
-    background-color: var(--color-background);
-    color: var(--color-text-dark);
-    font-family: var(--font-body);
-    line-height: 1.6;
-}
+ #wrapper {
+     max-width: 1200px;
+     margin: 0 auto;
+     background-color: var(--color-text-light);
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
 
-h1,
-h2,
-h3 {
-    font-family: var(--font-heading);
-    margin-bottom: 0.5em;
-    color: var(--color-secondary);
-}
+ /* Basic Typography */
+ h1,
+ h2,
+ h3 {
+     font-family: var(--font-heading);
+     margin-bottom: 0.5rem;
+ }
 
-#wrapper {
-    max-width: 1000px;
-    /* Max width for content on large screens */
-    margin: 0 auto;
-    background-color: var(--color-text-light);
-    /* Content background */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+ a {
+     color: var(--color-primary);
+     text-decoration: none;
+ }
 
-a {
-    color: var(--color-primary);
-    text-decoration: none;
-    transition: color 0.3s;
-}
+ a:hover {
+     text-decoration: underline;
+ }
 
-a:hover {
-    color: var(--color-accent-cta);
-}
+ /*
+        ======================================================
+        2. HEADER STYLES
+        ======================================================
+        */
+ #top-header {
+     background-color: var(--color-secondary);
+     color: var(--color-text-light);
+     padding: 1rem;
+     border-bottom: 3px solid var(--color-primary);
+ }
 
-/*
-======================================================
-2. HEADER & NAVIGATION STYLES
-======================================================
-*/
+ .header-content {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
 
-#top-header {
-    background-color: var(--color-secondary);
-    color: var(--color-text-light);
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+ .site-logo {
+     font-size: 1.5rem;
+     color: var(--color-text-light);
+ }
 
-.site-logo {
-    font-size: 1.5rem;
-    margin: 0;
-}
+ .account-tools a {
+     color: var(--color-accent-cta);
+     font-weight: 600;
+ }
 
-#top-header a {
-    color: var(--color-text-light);
-}
+ .account-tools a:hover {
+     color: var(--color-text-light);
+ }
 
-#main-nav {
-    background-color: var(--color-primary);
-    padding: 0.5rem 0;
-}
+ /*
+        ======================================================
+        3. NAVIGATION STYLES
+        ======================================================
+        */
+ #main-nav {
+     background-color: var(--color-primary);
+     padding: 0.5rem 0;
+ }
 
-.nav-list {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    /* Allows wrapping on smaller screens */
-    justify-content: space-around;
-}
+ .nav-list {
+     list-style: none;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-around;
+ }
 
-.nav-list li a {
-    display: block;
-    padding: 0.5rem 1rem;
-    color: var(--color-text-light);
-    font-weight: 600;
-}
+ .nav-list li a {
+     display: block;
+     color: var(--color-text-light);
+     padding: 0.75rem 1rem;
+     text-align: center;
+     font-weight: 600;
+     transition: background-color 0.3s;
+ }
 
-.nav-list li a:hover {
-    background-color: var(--color-secondary);
-}
+ .nav-list li a:hover {
+     background-color: var(--color-secondary);
+     text-decoration: none;
+ }
 
-/*
-======================================================
-3. MAIN CONTENT STYLES (HOME VIEW)
-======================================================
-*/
+ /*
+        ======================================================
+        4. MAIN CONTENT & HOME LAYOUT STYLES
+        ======================================================
+        */
+ #main-content {
+     padding-bottom: 2rem;
+     /* Space before footer */
+ }
 
-#main-content {
-    padding: 1rem;
-}
+ /* ---------------------- Promotional Banner (Mobile) ---------------------- */
+ .promotional-banner {
+     border-bottom: 5px solid var(--color-accent-cta);
+ }
 
-/* Promotional Banner */
-.promotional-banner {
-    margin-bottom: 2rem;
-    position: relative;
-    padding: 0;
-    border: 1px solid #ccc;
-}
+ .promotion-image-container {
+     position: relative;
+     overflow: hidden;
+     min-height: 250px;
+ }
 
-.hero-car-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
+ .promotion-image-container h1 {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     color: var(--color-text-light);
+     font-size: 2rem;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+     z-index: 10;
+     text-align: center;
+     width: 90%;
+ }
 
-.promotion-details {
-    padding: 1rem;
-}
+ .hero-car-image {
+     display: block;
+     width: 100%;
+     height: auto;
+     object-fit: cover;
+ }
 
-.callout {
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 2px solid var(--color-primary);
-    padding: 1rem;
-    margin-top: 1rem;
-}
+ .promotion-details {
+     padding: 1.5rem;
+     background-color: var(--color-background);
+ }
 
-.callout h3 {
-    color: var(--color-accent-cta);
-    font-size: 1.2rem;
-}
+ /* Callout Box */
+ .callout {
+     background-color: var(--color-text-light);
+     border: 2px solid var(--color-primary);
+     padding: 1rem;
+     margin-top: 1rem;
+     border-radius: 8px;
+     text-align: center;
+ }
 
-.cta-button {
-    display: inline-block;
-    background-color: var(--color-accent-cta);
-    color: var(--color-text-light);
-    padding: 0.75rem 1.5rem;
-    border-radius: 5px;
-    font-weight: 600;
-    margin-top: 0.5rem;
-    text-transform: uppercase;
-}
+ .callout h3 {
+     color: var(--color-accent-cta);
+     font-size: 1.25rem;
+ }
 
-.cta-button:hover {
-    background-color: var(--color-primary);
-}
+ .callout p {
+     margin: 0.5rem 0 1rem;
+ }
 
-/* Reviews and Upgrades Sections (Mobile: Stacked) */
-.reviews-section,
-.upgrades-section {
-    padding: 1rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
+ /* CTA Button */
+ .cta-button {
+     display: inline-block;
+     background-color: var(--color-accent-cta);
+     color: var(--color-text-light);
+     padding: 0.75rem 1.5rem;
+     border-radius: 5px;
+     font-weight: 700;
+     text-transform: uppercase;
+     transition: background-color 0.3s;
+ }
 
-.reviews-section ul {
-    list-style: square;
-    margin-left: 1.5rem;
-}
+ .cta-button:hover {
+     background-color: var(--color-primary);
+     text-decoration: none;
+ }
 
-.upgrade-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-}
+ /* ---------------------- Reviews and Upgrades (Mobile) ---------------------- */
+ .content-sections {
+     padding: 1rem;
+     display: flex;
+     flex-direction: column;
+     gap: 20px;
+ }
 
-.upgrade-item {
-    flex-basis: 45%;
-    /* Two items per row on mobile */
-    text-align: center;
-    border: 1px solid #eee;
-    padding: 10px 5px;
-    border-radius: 5px;
-    background-color: #fff;
-}
+ .reviews-section,
+ .upgrades-section {
+     padding: 1rem;
+     background-color: var(--color-background);
+     border: 1px solid #ccc;
+     border-radius: 8px;
+ }
 
-.upgrade-item img {
-    width: 50px;
-    height: 50px;
-    display: block;
-    margin: 0 auto 5px;
-}
+ /* Reviews */
+ .reviews-section ul {
+     list-style: square;
+     padding-left: 1.5rem;
+ }
 
-/*
-======================================================
-4. FOOTER STYLES
-======================================================
-*/
+ .reviews-section li {
+     margin-bottom: 0.5rem;
+ }
 
-#site-footer {
-    background-color: var(--color-secondary);
-    color: var(--color-text-light);
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.9rem;
-}
+ /* Upgrades Grid */
+ .upgrade-grid {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-around;
+     gap: 15px;
+ }
 
-/*
-======================================================
-5. MEDIA QUERIES (LARGE SCREEN LAYOUT)
-======================================================
-*/
+ .upgrade-item {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     width: 45%;
+     /* Two items per row on mobile */
+     text-align: center;
+     background-color: var(--color-text-light);
+     padding: 0.5rem;
+     border-radius: 5px;
+     border: 1px solid #ddd;
+     transition: box-shadow 0.3s;
+ }
 
-@media screen and (min-width: 768px) {
+ .upgrade-item:hover {
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     text-decoration: none;
+ }
 
-    /* ---------------------- Promotional Banner Layout ---------------------- */
-    .promotional-banner {
-        display: flex;
-        flex-direction: row;
-        /* Reverses the order so image is left, details is right on large screens */
-        flex-direction: row-reverse;
-        align-items: center;
-        border: none;
-    }
+ .upgrade-item img {
+     width: 50px;
+     height: 50px;
+     object-fit: cover;
+     border-radius: 4px;
+     margin-bottom: 0.5rem;
+ }
 
-    .promotion-image-container,
-    .promotion-details {
-        flex: 1;
-        min-height: 400px;
-        /* Set a consistent height */
-    }
+ .upgrade-item span {
+     font-weight: 600;
+     color: var(--color-primary);
+ }
 
-    .promotion-image-container {
-        /* On large screens, the image takes the left side */
-        order: 1;
-        overflow: hidden;
-    }
 
-    .promotion-details {
-        /* On large screens, details take the right side */
-        order: 2;
-        padding: 2rem;
-        background-color: var(--color-background);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+ /*
+        ======================================================
+        5. FOOTER STYLES
+        ======================================================
+        */
+ #site-footer {
+     background-color: var(--color-secondary);
+     color: var(--color-text-light);
+     text-align: center;
+     padding: 1rem;
+     font-size: 0.9rem;
+ }
 
-    .hero-car-image {
-        /* Image object-fit for covering the container */
-        object-fit: cover;
-        height: 100%;
-        width: 100%;
-    }
+ /*
+        ======================================================
+        6. MEDIA QUERIES (DESKTOP/TABLET - min-width: 768px)
+        ======================================================
+        */
+ @media screen and (min-width: 768px) {
 
-    .callout {
-        margin-top: 2rem;
-        padding: 1.5rem;
-    }
+     /* ---------------------- Header Adjustments ---------------------- */
+     .site-logo {
+         font-size: 2rem;
+     }
 
-    /* ---------------------- Reviews and Upgrades Layout ---------------------- */
-    .content-sections {
-        display: flex;
-        gap: 20px;
-        margin-top: 2rem;
-    }
+     /* ---------------------- Promotional Banner Layout ---------------------- */
+     .promotional-banner {
+         display: flex;
+         /* Reverses the order so image is left, details is right on large screens */
+         flex-direction: row-reverse;
+         align-items: stretch;
+         /* Stretch to fill container height */
+         border: none;
+     }
 
-    .reviews-section,
-    .upgrades-section {
-        flex: 1;
-        /* Makes both sections equal width */
-    }
+     .promotion-image-container,
+     .promotion-details {
+         flex: 1;
+         min-height: 450px;
+         /* Set a consistent height */
+     }
 
-    .upgrade-grid {
-        justify-content: flex-start;
-    }
+     .promotion-image-container {
+         /* On large screens, the image takes the left side */
+         order: 1;
+         overflow: hidden;
+     }
 
-    .upgrade-item {
-        flex-basis: 48%;
-        /* Adjust for 2 columns with gap */
-    }
-}
+     .promotion-image-container h1 {
+         font-size: 3rem;
+     }
+
+
+     .promotion-details {
+         /* On large screens, details take the right side */
+         order: 2;
+         padding: 2rem;
+         background-color: var(--color-background);
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+     }
+
+     .hero-car-image {
+         /* Image object-fit for covering the container */
+         object-fit: cover;
+         height: 100%;
+         width: 100%;
+     }
+
+     .callout {
+         margin-top: 2rem;
+         padding: 2rem;
+     }
+
+     /* ---------------------- Reviews and Upgrades Layout ---------------------- */
+     .content-sections {
+         display: flex;
+         flex-direction: row;
+         /* Change to row for side-by-side */
+         gap: 20px;
+         margin-top: 20px;
+     }
+
+     .reviews-section,
+     .upgrades-section {
+         flex: 1;
+         /* Makes them equal width */
+     }
+
+     .upgrade-grid {
+         justify-content: space-between;
+         gap: 20px;
+     }
+
+     .upgrade-item {
+         width: 48%;
+         /* Adjust for spacing and two items per row on desktop */
+     }
+ }
