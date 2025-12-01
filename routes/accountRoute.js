@@ -1,0 +1,16 @@
+const express = require("express")
+const router = express.Router()
+const accountController = require("../controllers/accountController")
+const utilities = require("../utilities/")
+
+// Route to build login view
+router.get("/", utilities.handleErrors(accountController.buildLogin))
+// The path for the 'My Account' link is typically /account/login. 
+// When mounted at /account in server.js, the router handles /login.
+// We will use the explicit /login route here to clarify the path.
+router.get("/login", utilities.handleErrors(accountController.buildLogin))
+
+// Route to build registration view
+router.get("/register", utilities.handleErrors(accountController.buildRegister))
+
+module.exports = router;

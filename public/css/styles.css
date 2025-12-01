@@ -286,3 +286,118 @@ section {
 
   /* END navigation.ejs styles */
 }
+
+/* 🚗 Main container for account views (Login/Register) */
+.account-container {
+  max-width: 400px;
+  /* Set a comfortable width for forms */
+  margin: 40px auto;
+  /* Center the container with vertical space */
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  /* Subtle depth */
+}
+
+/* 🎯 Header Styling for h1 */
+.account-container h1 {
+  text-align: center;
+  color: #1f2937;
+  /* Dark Gray */
+  margin-bottom: 25px;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+/* 🔔 Error/Flash Message Container */
+.flash-messages {
+  /* Uses utility classes like bg-red-100, text-red-700, px-4, py-3, rounded, mb-4 */
+  font-size: 0.95em;
+}
+
+/* 📝 Styles for form itself (e.g., used by #loginForm, #registrationForm) */
+form {
+  padding: 0;
+}
+
+/* 🏷️ Label Styling */
+.form-group label {
+  font-weight: 600;
+  /* Bolder text for visibility */
+  color: #374151;
+  /* Slightly darker than default gray */
+  margin-bottom: 8px;
+  display: block;
+  /* Ensures label takes full width */
+}
+
+/* 🛑 Input Focus Effect */
+/* Compliments the existing border and focus utility classes */
+.form-group input {
+  border: 1px solid #d1d5db;
+  /* Gray-300 */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus {
+  border-color: #3b82f6;
+  /* Blue-500 */
+  outline: none;
+  box-shadow: 0 0 0 1px #3b82f6;
+  /* Subtle blue outline on focus */
+}
+
+/* 🔑 Password Requirements Note (for register.ejs) */
+.form-group .text-sm {
+  color: #6b7280;
+  margin-top: 5px;
+  font-weight: normal;
+}
+
+/* 👆 Submit Button Styling */
+/* Complements existing classes like bg-blue-600 */
+.submit-button {
+  font-size: 1.1em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 🔗 Registration/Login Link Area */
+.registration-link {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+  /* Light border separator */
+  text-align: center;
+}
+
+.registration-link p {
+  margin-bottom: 5px;
+}
+
+.registration-link a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.registration-link a:hover {
+  text-decoration: underline;
+}
+
+/* Optional: Password Toggle Button (if implemented in register.ejs) */
+#togglePassword {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 5px;
+  font-size: 0.9em;
+}
