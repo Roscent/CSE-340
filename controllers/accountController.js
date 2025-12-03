@@ -23,4 +23,4 @@ async function buildRegister(req, res, next) {
   })
 }
 
-module.exports = { buildLogin }
+module.exports = { buildLogin, buildRegister }
