@@ -5,6 +5,8 @@
 /* ***********************
  * Require Statements
  *************************/
+const pool = require('./database/')
+const accountRoute = require("./routes/accountRoute");
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const env = require("dotenv").config();
@@ -15,8 +17,7 @@ const inventoryRoute = require("./routes/inventoryRoute");
 const utilities = require("./utilities/");
 const testController = require("./controllers/testController");
 const session = require("express-session")
-const pool = require('./database/')
-const accountRoute = require("./routes/accountRoute");
+const bodyParser = require("body-parser")
 
 /* ***********************
  * Middleware
@@ -31,6 +32,9 @@ const accountRoute = require("./routes/accountRoute");
   saveUninitialized: true,
   name: 'sessionId',
 }))
+// for parsing application/x-www-form-urlencoded
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // Express Messages Middleware
 app.use(require('connect-flash')())

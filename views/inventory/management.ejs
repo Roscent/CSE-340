@@ -1,0 +1,33 @@
+<% layout('layouts/layout') %>
+
+    <div class="inventory-management-container">
+        <h1>
+            <%= title %>
+        </h1>
+
+        <% if (messages.notice) { %>
+            <div class="notice bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded relative mb-4"
+                role="alert">
+                <p>
+                    <%= messages.notice %>
+                </p>
+            </div>
+            <% } %>
+
+                <h2 class="text-xl font-bold mb-4">Inventory Management</h2>
+
+                <ul class="space-y-4">
+                    <li>
+                        <a href="/inv/add-classification" title="Add a new classification"
+                            class="text-blue-600 hover:text-blue-800 font-medium underline transition duration-200">
+                            Add New Classification
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/inv/add-inventory" title="Add a new vehicle to inventory"
+                            class="text-blue-600 hover:text-blue-800 font-medium underline transition duration-200">
+                            Add New Inventory
+                        </a>
+                    </li>
+                </ul>
+    </div>
