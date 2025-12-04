@@ -47,8 +47,7 @@ validate.inventoryRules = () => {
         // classification_id is required
         body("classification_id")
             .trim()
-            .notEmpty()
-            .isInt({ min: 1 }) // Assuming classification_id is a positive integer
+            .isInt({ min: 1 })
             .withMessage("Please select a classification."),
 
         // inv_make is required and must be a string
@@ -84,21 +83,21 @@ validate.inventoryRules = () => {
         body("inv_image")
             .trim()
             .notEmpty()
-            .isLength({ min: 1 })
+            .isLength({ min: 6 })
             .withMessage("Please provide a valid image path."),
 
         // inv_thumbnail is required and must be a valid path
         body("inv_thumbnail")
             .trim()
             .notEmpty()
-            .isLength({ min: 1 })
+            .isLength({ min: 6 })
             .withMessage("Please provide a valid thumbnail path."),
 
         // inv_price is required and must be a decimal/float
         body("inv_price")
             .trim()
             .notEmpty()
-            .isFloat({ min: 0 })
+            .isFloat({ min: 0.01 })
             .withMessage("Please provide a valid price."),
 
         // inv_miles is required and must be an integer
@@ -132,7 +131,7 @@ validate.checkNewInventory = async (req, res, next) => {
         let classificationList = await utilities.buildClassificationList(classification_id) // Pass classification_id for stickiness
 
         res.render("inventory/add-inventory", {
-            errors,
+            errors: errors.array(),
             title: "Add New Inventory",
             nav,
             classificationList,

@@ -5,17 +5,6 @@ const invController = require("../controllers/invController")
 const utilities = require("../utilities/")
 const invValidate = require('../utilities/inventory-validation')
 
-// Route to build add classification view
-router.get("/add-classification", utilities.handleErrors(invController.buildAddClassification))
-
-// Route to process new classification data
-router.post(
-    "/add-classification",
-    invValidate.classificationRules(),
-    invValidate.checkNewClassification,
-    utilities.handleErrors(invController.addClassification)
-)
-
 // Route to build inventory by classification view
 router.get("/type/:classificationId", utilities.handleErrors(invController.buildByClassificationId));
 
@@ -25,15 +14,16 @@ router.get("/detail/:invId", utilities.handleErrors(invController.buildByInvento
 // Route to build inventory management view (site-name/inv/)
 router.get("/", utilities.handleErrors(invController.buildManagement))
 
+// Route to build add classification view
+router.get("/add-classification", utilities.handleErrors(invController.buildAddClassification))
+
+// Route to process new classification data
+router.post("/add-classification", invValidate.classificationRules(), invValidate.checkNewClassification, utilities.handleErrors(invController.addClassification))
+
 // Route to build add inventory view
 router.get("/add-inventory", utilities.handleErrors(invController.buildAddInventory))
 
 // Route to process new inventory data
-router.post(
-    "/add-inventory",
-    invValidate.inventoryRules(),
-    invValidate.checkNewInventory,
-    utilities.handleErrors(invController.addInventory)
-)
+router.post("/add-inventory", invValidate.inventoryRules(), invValidate.checkNewInventory, utilities.handleErrors(invController.addInventory))
 
 module.exports = router;
