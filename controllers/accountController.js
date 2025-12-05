@@ -47,12 +47,11 @@ async function registerAccount(req, res) {
       errors: null
     })
   }
-  } else { // RENDER REGISTRATION VIEW WITH ERRORS AND INPUTS
+  } else {
     res.render("account/register", {
-      errors: errors.array(), // Pass errors array to view
+      errors: errors.array(),
       title: "Registration",
       nav,
-      // Retain the user's input values
       account_firstname: req.body.account_firstname,
       account_lastname: req.body.account_lastname,
       account_email: req.body.account_email,
