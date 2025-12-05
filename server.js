@@ -32,6 +32,7 @@ const app = express();
   saveUninitialized: true,
   name: 'sessionId',
 }))
+
 // for parsing application/x-www-form-urlencoded
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))

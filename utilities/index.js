@@ -52,7 +52,7 @@ Util.buildClassificationGrid = async function(data){
     })
     grid += '</ul>'
   } else { 
-    grid += '<p class="notice">Sorry, no matching vehicles could be found.</p>'
+    grid = '<p class="notice">Sorry, no matching vehicles could be found.</p>'
   }
   return grid
 }
@@ -93,29 +93,30 @@ Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)
 * Build the inventory detail view HTML
 * ************************************ */
 Util.buildInventoryDetail = function(vehicle){ 
-    const price = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(vehicle.inv_price)
+    const price = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(vehicle.inv_price)
     const mileage = new Intl.NumberFormat('en-US').format(vehicle.inv_miles)
 
     let detail = '<div id="inv-detail-wrapper" class="flex-container">' 
     
     // Image Section
     detail += '<div class="inv-image-col">'
-    detail += `<img src="${vehicle.inv_image}" alt="Image of ${vehicle.inv_make} ${vehicle.inv_model}" />`
+    detail += `<img src="${vehicle.inv_image}" alt="Image of ${vehicle.inv_make} ${vehicle.inv_model}" class="detail-img" />`
     detail += '</div>'
 
     // Details Section
     detail += '<div class="inv-details-col">'
-    // FIX: Using h2 for consistency
-    detail += '<h2 class="detail-heading">' + vehicle.inv_make + ' ' + vehicle.inv_model + ' Details' + '</h2>' 
-    detail += '<ul class="inv-details-list">'
+    detail += '<h2 class="detail-heading">' + vehicle.inv_year + ' ' + vehicle.inv_make + ' ' + vehicle.inv_model + '</h2>' 
     
-    // Price must be prominent
-    detail += `<li class="price-li">**Price:** ${price}</li>` 
-    // Other descriptive data
-    detail += `<li>**Description:** ${vehicle.inv_description}</li>`
-    detail += `<li>**Color:** ${vehicle.inv_color}</li>`
-    detail += `<li>**Year:** ${vehicle.inv_year}</li>`
-    detail += `<li>**Mileage:** ${mileage} miles</li>`
+    // Prominent price display
+    detail += '<div class="price-display">'
+    detail += `<span class="price-value">${price}</span>`
+    detail += '</div>'
+    
+    detail += '<ul class="inv-details-list">'
+    detail += `<li><strong>Description:</strong> ${vehicle.inv_description}</li>`
+    detail += `<li><strong>Color:</strong> ${vehicle.inv_color}</li>`
+    detail += `<li><strong>Year:</strong> ${vehicle.inv_year}</li>`
+    detail += `<li><strong>Mileage:</strong> ${mileage} miles</li>`
     
     detail += '</ul>'
     detail += '</div>'
@@ -123,12 +124,5 @@ Util.buildInventoryDetail = function(vehicle){
 
     return detail
 }
-
-/* *************************
-* Middleware FOr Handling Error
-* Wrap other function in this for
-* General error handling
-****************************/
-Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
 
 module.exports = Util

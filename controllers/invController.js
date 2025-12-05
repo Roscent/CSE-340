@@ -158,7 +158,7 @@ async function addInventory(req, res) {
             title: "Add New Inventory",
             nav,
             classificationList,
-            errors: null,
+            errors: errors.array(),
             inv_make, inv_model, inv_year, inv_description, inv_image, 
             inv_thumbnail, inv_price, inv_miles, inv_color, classification_id 
         })

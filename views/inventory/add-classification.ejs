@@ -13,7 +13,7 @@
             </div>
             <% } %>
 
-                <% if (errors) { %>
+                <% if (errors && errors.array) { %>
                     <ul class="notice">
                         <% errors.array().forEach(error=> { %>
                             <li>
@@ -34,7 +34,7 @@
                                 <input type="text" id="classificationName" name="classification_name" required
                                     placeholder="Enter new classification name" pattern="^[a-zA-Z0-9]+$"
                                     title="Only letters and numbers are allowed (no spaces or special characters)."
-                                    value="<%= locals.classification_name %>"
+                                    value="<%= typeof classification_name !== 'undefined' ? classification_name : '' %>"
                                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                             </div>
 
