@@ -92,11 +92,11 @@ Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)
 /* **************************************
 * Build the inventory detail view HTML
 * ************************************ */
-Util.buildInventoryDetail = async function(vehicle){ // <--- ADD THIS
+Util.buildInventoryDetail = function(vehicle){ 
     const price = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(vehicle.inv_price)
     const mileage = new Intl.NumberFormat('en-US').format(vehicle.inv_miles)
 
-    let detail = '<div id="inv-detail-wrapper">'
+    let detail = '<div id="inv-detail-wrapper" class="flex-container">' 
     
     // Image Section
     detail += '<div class="inv-image-col">'
@@ -105,10 +105,13 @@ Util.buildInventoryDetail = async function(vehicle){ // <--- ADD THIS
 
     // Details Section
     detail += '<div class="inv-details-col">'
-    detail += '<h2>' + vehicle.inv_make + ' ' + vehicle.inv_model + ' Details' + '</h2>'
+    // FIX: Using h2 for consistency
+    detail += '<h2 class="detail-heading">' + vehicle.inv_make + ' ' + vehicle.inv_model + ' Details' + '</h2>' 
     detail += '<ul class="inv-details-list">'
     
-    detail += `<li>**Price:** ${price}</li>`
+    // Price must be prominent
+    detail += `<li class="price-li">**Price:** ${price}</li>` 
+    // Other descriptive data
     detail += `<li>**Description:** ${vehicle.inv_description}</li>`
     detail += `<li>**Color:** ${vehicle.inv_color}</li>`
     detail += `<li>**Year:** ${vehicle.inv_year}</li>`

@@ -9,8 +9,6 @@ const pool = require('./database/')
 const accountRoute = require("./routes/accountRoute");
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
-const env = require("dotenv").config();
-const app = express();
 const static = require("./routes/static");
 const baseController = require("./controllers/baseController");
 const inventoryRoute = require("./routes/inventoryRoute");
@@ -18,6 +16,8 @@ const utilities = require("./utilities/");
 const testController = require("./controllers/testController");
 const session = require("express-session")
 const bodyParser = require("body-parser")
+const env = require("dotenv").config();
+const app = express();
 
 /* ***********************
  * Middleware
@@ -64,8 +64,6 @@ app.use("/inv", inventoryRoute);
 
 // Account routes
 app.use("/account", accountRoute);
-
-
 
 // Test Error Route
 app.get("/test/error", utilities.handleErrors(testController.generateError));

@@ -4,9 +4,13 @@ const pool = require("../database/")
  *  Get all classification data
  * ************************** */
 async function getClassifications(){
-  return await pool.query("SELECT * FROM public.classification ORDER BY classification_name")
+  try {
+    return await pool.query("SELECT * FROM public.classification ORDER BY classification_name")
+  } catch (error) {
+    console.error("Database Connection/Query Error in getClassifications:", error.message)
+    return { rows: [] }
+  }
 }
-
 /* ***************************
  * Insert a new classification
  * ************************** */
@@ -87,9 +91,11 @@ async function getInventoryByInventoryid(inv_id){
       WHERE inv_id = $1`,
       [inv_id]
     )
-    return data.rows
+    // FIX: Return the single vehicle object (the first element of the rows array)
+    return data.rows[0] 
   } catch (error) {
     console.error("getinventorybyid error: " + error)
+    // The error is now logged and the error handler should catch the subsequent error
   }
 }
 

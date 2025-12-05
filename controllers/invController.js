@@ -9,6 +9,11 @@ const invCont = {}
 async function buildByClassificationId(req, res, next) {
   const classification_id = req.params.classificationId
   const data = await invModel.getInventoryByClassificationId(classification_id)
+
+  if (!data || data.length === 0) { 
+    throw new Error("No vehicles found for this classification.")
+  }
+
   const grid = await utilities.buildClassificationGrid(data)
   let nav = await utilities.getNav()
   const className = data[0].classification_name
@@ -23,24 +28,25 @@ async function buildByClassificationId(req, res, next) {
 * Build the inventory detail view
 * *************************/
 async function buildByInventoryId(req, res, next) {
-  const inv_id = req.params.invId
-  const data = await invModel.getInventoryByInventoryid(inv_id)
+    const inv_id = req.params.invId
+    const vehicleData = await invModel.getInventoryByInventoryid(inv_id)
 
-  // check if vehicle data was found
-  if (!data || data.length === 0){
-    // Trigger a 404 error if vehicle is not found
-    const err = new Error("Vehicle not found")
-    err.status = 404
-    return next(err)
-  }
-  const detailHtml = await utilities.buildInventoryDetail(data[0])
-  let nav = await utilities.getNav()
-  const vehicleName = `${data[0].inv_make} ${data[0].inv_model}`
-  res.render("./inventory/detail", {
-    title:vehicleName,
-    nav,
-    detailHtml,
-  })
+    // Handle case where no item is found (triggers 404)
+    if (!vehicleData) {
+        throw new Error("Sorry, no vehicle data could be found.")
+    }
+
+    const detailHtml = utilities.buildInventoryDetail(vehicleData)
+    let nav = await utilities.getNav()
+
+    const title = vehicleData.inv_make + ' ' + vehicleData.inv_model // Make and model for the title
+
+    res.render("./inventory/detail", {
+        title: title, 
+        nav,
+        detailHtml, // Pass the generated HTML to the view
+        errors: null,
+    })
 }
 
 /* ****************************************
