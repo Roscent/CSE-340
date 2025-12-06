@@ -19,6 +19,7 @@ async function addClassification(classification_name) {
     const sql = "INSERT INTO classification (classification_name) VALUES ($1) RETURNING *"
     return await pool.query(sql, [classification_name])
   } catch (error) {
+    // Return the error message on failure
     return { error: error.message }; 
   }
 }
@@ -57,6 +58,7 @@ async function addInventory(
         ]
         return await pool.query(sql, values)
     } catch (error) {
+        // Return the error message on failure
         return { error: error.message }; 
     }
 }
@@ -89,9 +91,11 @@ async function getInventoryByInventoryid(inv_id){
       WHERE inv_id = $1`,
       [inv_id]
     )
+    // FIX: Return the single vehicle object (the first element of the rows array)
     return data.rows[0] 
   } catch (error) {
     console.error("getinventorybyid error: " + error)
+    // The error is now logged and the error handler should catch the subsequent error
   }
 }
 

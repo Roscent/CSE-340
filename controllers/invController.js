@@ -39,12 +39,12 @@ async function buildByInventoryId(req, res, next) {
     const detailHtml = utilities.buildInventoryDetail(vehicleData)
     let nav = await utilities.getNav()
 
-    const title = vehicleData.inv_make + ' ' + vehicleData.inv_model
+    const title = vehicleData.inv_make + ' ' + vehicleData.inv_model // Make and model for the title
 
     res.render("./inventory/detail", {
         title: title, 
         nav,
-        detailHtml,
+        detailHtml, // Pass the generated HTML to the view
         errors: null,
     })
 }
