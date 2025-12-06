@@ -1,0 +1,75 @@
+<div class="account-container">
+    <h1>
+        <%= title %>
+    </h1>
+            <% if (errors) { %>
+                <ul class="notice">
+                    <% errors.forEach(error=> { %>
+                        <li>
+                            <%= error.msg %>
+                        </li>
+                        <% }) %>
+                </ul>
+                <% } %>
+
+                    <form id="registrationForm" action="/account/register" method="post" class="space-y-6">
+
+                        <div class="form-group">
+                            <label for="accountFirstname" class="block text-gray-700 font-semibold mb-2">First Name
+                                (required)</label>
+                            <input type="text" id="accountFirstname" name="account_firstname" required
+                                placeholder="Enter your first name"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="accountLastname" class="block text-gray-700 font-semibold mb-2">Last Name
+                                (required)</label>
+                            <input type="text" id="accountLastname" name="account_lastname" required
+                                placeholder="Enter your last name"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="accountEmail" class="block text-gray-700 font-semibold mb-2">Email Address
+                                (required)</label>
+                            <input type="email" id="accountEmail" name="account_email" required
+                                placeholder="Enter your email address"
+                                title="A valid email address is required (e.g., name@example.com)"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="accountPassword" class="block text-gray-700 font-semibold mb-2">
+                                Password (required)
+                                <span class="text-sm text-gray-500 block">
+                                    12 characters min, 1 capital letter, 1 number, 1 special character.
+                                </span>
+                            </label>
+                            <input type="password" id="accountPassword" name="account_password" required
+                                placeholder="Enter your password" title="Password must meet security requirements"
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9\s]).{12,}"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                            <button type="button" id="togglePassword"
+                                class="mt-2 text-sm text-blue-600 hover:text-blue-800">
+                                Show Password
+                            </button>
+                        </div>
+
+                        <button type="submit" class="submit-button w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 
+            rounded-lg transition duration-200 shadow-md">
+                            Register Account
+                        </button>
+                    </form>
+
+                    <script>
+                        // Optional JavaScript for Password Toggle
+                        document.getElementById('togglePassword').addEventListener('click', function (e) {
+                            const passwordInput = document.getElementById('accountPassword');
+                            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                            passwordInput.setAttribute('type', type);
+                            this.textContent = type === 'password' ? 'Show Password' : 'Hide Password';
+                        });
+                    </script>
+</div>

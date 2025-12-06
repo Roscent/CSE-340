@@ -2,87 +2,99 @@
     <h1>
         <%= title %>
     </h1>
-
+    <!-- Flash Messages (Connect-Flash) -->
     <% if (messages.notice) { %>
-        <div class="notice bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded relative mb-4" role="alert">
-            <p><%= messages.notice %></p>
+        <div class="notice bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded relative mb-4"
+            role="alert">
+            <p>
+                <%= messages.notice %>
+            </p>
         </div>
-    <% } %>
+        <% } %>
 
-    <% if (errors) { %>
-        <ul class="notice">
-            <% errors.array().forEach(error=> { %>
-                <li>
-                    <%= error.msg %>
-                </li>
-                <% }) %>
-        </ul>
-    <% } %>
-
-    <form action="/account/register" method="post" class="space-y-6">
-
-        <div class="form-group">
-            <label for="accountFirstname" class="block text-gray-700 font-semibold mb-2">First Name</label>
-            <input type="text" id="accountFirstname" name="account_firstname" **required**
-                placeholder="Enter your first name"
-                value="<%= locals.account_firstname %>"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-        </div>
-
-        <div class="form-group">
-            <label for="accountLastname" class="block text-gray-700 font-semibold mb-2">Last Name</label>
-            <input type="text" id="accountLastname" name="account_lastname" **required**
-                placeholder="Enter your last name"
-                value="<%= locals.account_lastname %>"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-        </div>
-
-        <div class="form-group">
-            <label for="accountEmail" class="block text-gray-700 font-semibold mb-2">Email Address</label>
-            <input type="email" id="accountEmail" name="account_email" **required**
-                placeholder="Enter a valid email address"
-                value="<%= locals.account_email %>"
-                title="A valid email address is required (e.g., name@example.com)"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-        </div>
-
-        <div class="form-group">
-            <label for="accountPassword" class="block text-gray-700 font-semibold mb-2">Password</label>
-
-            <div class="text-sm text-gray-500 mb-2 p-2 border border-dashed border-gray-300 rounded-lg bg-gray-50">
-                **Password Requirements:**
-                <ul class="list-disc list-inside mt-1 space-y-0.5">
-                    <li>Minimum 12 characters</li>
-                    <li>At least 1 capital letter (A-Z)</li>
-                    <li>At least 1 number (0-9)</li>
-                    <li>At least 1 special character (e.g., #, $, !, @)</li>
+            <!-- Validation Errors (Express-Validator) -->
+            <% if (errors) { %>
+                <ul class="notice">
+                    <% errors.array().forEach(error=> { %>
+                        <li>
+                            <%= error.msg %>
+                        </li>
+                        <% }) %>
                 </ul>
-            </div>
+                <% } %>
 
-            <input type="password" name="account_password" id="accountPassword" **required**
-                placeholder="Enter your secure password"
-                title="Password must meet all security requirements."
-                **pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"**
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <!-- Registration Form -->
+                    <form action="/account/register" method="post" class="space-y-6">
 
-            <button type="button" id="togglePassword"
-                class="mt-2 text-sm text-blue-600 hover:text-blue-800 underline">
-                Show Password
-            </button>
-        </div>
+                        <!-- First Name -->
+                        <div class="form-group">
+                            <label for="accountFirstname" class="block text-gray-700 font-semibold mb-2">First
+                                Name</label>
+                            <input type="text" id="accountFirstname" name="account_firstname" **required**
+                                placeholder="Enter your first name" value="<%= locals.account_firstname %>"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
 
-        <button type="submit" class="submit-button w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 
+                        <!-- Last Name -->
+                        <div class="form-group">
+                            <label for="accountLastname" class="block text-gray-700 font-semibold mb-2">Last
+                                Name</label>
+                            <input type="text" id="accountLastname" name="account_lastname" **required**
+                                placeholder="Enter your last name" value="<%= locals.account_lastname %>"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="accountEmail" class="block text-gray-700 font-semibold mb-2">Email
+                                Address</label>
+                            <input type="email" id="accountEmail" name="account_email" **required**
+                                placeholder="Enter a valid email address" value="<%= locals.account_email %>"
+                                title="A valid email address is required (e.g., name@example.com)"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group">
+                            <label for="accountPassword" class="block text-gray-700 font-semibold mb-2">Password</label>
+
+                            <!-- Password Requirements Display -->
+                            <div
+                                class="text-sm text-gray-500 mb-2 p-2 border border-dashed border-gray-300 rounded-lg bg-gray-50">
+                                **Password Requirements:**
+                                <ul class="list-disc list-inside mt-1 space-y-0.5">
+                                    <li>Minimum 12 characters</li>
+                                    <li>At least 1 capital letter (A-Z)</li>
+                                    <li>At least 1 number (0-9)</li>
+                                    <li>At least 1 special character (e.g., #, $, !, @)</li>
+                                </ul>
+                            </div>
+
+                            <input type="password" name="account_password" id="accountPassword" **required**
+                                placeholder="Enter your secure password"
+                                title="Password must meet all security requirements."
+                                **pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" **
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                            <button type="button" id="togglePassword"
+                                class="mt-2 text-sm text-blue-600 hover:text-blue-800 underline">
+                                Show Password
+                            </button>
+                        </div>
+
+                        <button type="submit" class="submit-button w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 
             rounded-lg transition duration-200 shadow-md">
-            Register Account
-        </button>
-    </form>
+                            Register Account
+                        </button>
+                    </form>
 
-    <script>
-        document.getElementById('togglePassword').addEventListener('click', function (e) {
-            const passwordInput = document.getElementById('accountPassword');
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-            this.textContent = type === 'password' ? 'Show Password' : 'Hide Password';
-        });
-    </script>
+                    <!-- Optional JavaScript for Password Toggle -->
+                    <script>
+                        document.getElementById('togglePassword').addEventListener('click', function (e) {
+                            const passwordInput = document.getElementById('accountPassword');
+                            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                            passwordInput.setAttribute('type', type);
+                            this.textContent = type === 'password' ? 'Show Password' : 'Hide Password';
+                        });
+                    </script>
 </div>
