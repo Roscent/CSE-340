@@ -5,11 +5,9 @@
 /* ***********************
  * Require Statements
  *************************/
-const express = require("express");
-const app = express();
+const pool = require('./database/')
 const accountRoute = require("./routes/accountRoute");
-const pool = require('./database/');
-const env = require("dotenv").config();
+const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const static = require("./routes/static");
 const baseController = require("./controllers/baseController");
@@ -18,7 +16,8 @@ const utilities = require("./utilities/");
 const testController = require("./controllers/testController");
 const session = require("express-session")
 const bodyParser = require("body-parser")
-const cookieParser = require("cookie-parser")
+const env = require("dotenv").config();
+const app = express();
 
 /* ***********************
  * Middleware
@@ -33,11 +32,10 @@ const cookieParser = require("cookie-parser")
   saveUninitialized: true,
   name: 'sessionId',
 }))
-app.use(utilities.checkJWTToken)
+
 // for parsing application/x-www-form-urlencoded
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(cookieParser())
 
 // Express Messages Middleware
 app.use(require('connect-flash')())
