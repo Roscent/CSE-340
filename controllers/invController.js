@@ -54,9 +54,11 @@ async function buildByInventoryId(req, res, next) {
 * *************************************** */
 async function buildManagement(req, res, next) {
     let nav = await utilities.getNav()
+    const classificationSelect = await utilities.buildClassificationList()
     res.render("inventory/management", {
         title: "Vehicle Management",
         nav,
+        classificationSelect,
         errors: null,
     })
 }
@@ -165,4 +167,18 @@ async function addInventory(req, res) {
     }
 }
 
-module.exports = { buildByClassificationId, buildByInventoryId, buildManagement, buildAddClassification, addClassification, buildAddInventory, addInventory}
+/* ***************************
+ *  Return Inventory by Classification As JSON
+ * ************************** */
+async function getInventoryJSON(req, res, next) {
+  const classification_id = parseInt(req.params.classification_id)
+  const invData = await invModel.getInventoryByClassificationId(classification_id)
+  
+  if (invData && invData.length > 0 && invData[0].inv_id) {
+    return res.json(invData)
+  } else {
+    return res.json([]) // Return empty array instead of throwing error
+  }
+}
+
+module.exports = { buildByClassificationId, buildByInventoryId, buildManagement, buildAddClassification, addClassification, buildAddInventory, addInventory, getInventoryJSON}

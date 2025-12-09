@@ -1,5 +1,11 @@
+<%- include('../partials/_header') %>
 <h1>Vehicle Management</h1>
 
+<main class="container">
+  <h1>
+    <%= title %>
+  </h1>
+  <%- include('../partials/_navigation', {nav}) %>
 <% if (messages && messages.notice) { %>
   <div class="flash-message">
     <%= messages.notice %>
@@ -10,3 +16,26 @@
       <a href="/inv/add-classification" class="btn">Add New Classification</a>
       <a href="/inv/add-inventory" class="btn">Add New Inventory Vehicle</a>
     </div>
+
+<!-- Inventory Selection -->
+<h2>Manage Inventory</h2>
+<p>Select a classification from the list to see the items belonging to the classification.</p>
+
+<!-- Classification Select List -->
+<div class="classification-select">
+  <%- classificationSelect %>
+</div>
+
+<!-- Inventory Display Table -->
+<table id="inventoryDisplay" class="inventory-table"></table>
+
+<!-- No JavaScript Warning -->
+<noscript>
+  <p class="no-js-warning">JavaScript must be enabled to use this page.</p>
+</noscript>
+</main>
+
+<!-- JavaScript for inventory management -->
+<script src="/js/inventory.js"></script>
+
+<%- include('../partials/_footer') %>

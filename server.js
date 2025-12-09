@@ -18,6 +18,7 @@ const session = require("express-session")
 const bodyParser = require("body-parser")
 const env = require("dotenv").config();
 const app = express();
+const cookieParser = require("cookie-parser")
 
 /* ***********************
  * Middleware
@@ -32,6 +33,8 @@ const app = express();
   saveUninitialized: true,
   name: 'sessionId',
 }))
+app.use(cookieParser())
+app.use(utilities.checkJWTToken)
 
 // for parsing application/x-www-form-urlencoded
 app.use(bodyParser.json())

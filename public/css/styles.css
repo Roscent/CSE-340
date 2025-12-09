@@ -460,3 +460,58 @@ form {
     width: 100px;
   }
 }
+
+/* Inventory Management Styles */
+.management-links {
+  margin: 20px 0;
+}
+
+.management-links p {
+  margin-bottom: 10px;
+}
+
+.classification-select {
+  margin: 20px 0;
+}
+
+.classification-select select {
+  padding: 8px;
+  font-size: 16px;
+  min-width: 200px;
+}
+
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.inventory-table thead {
+  background-color: #f0f0f0;
+}
+
+.inventory-table th,
+.inventory-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.inventory-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.inventory-table a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.inventory-table a:hover {
+  text-decoration: underline;
+}
+
+.no-js-warning {
+  color: #cc0000;
+  font-weight: bold;
+  margin-top: 20px;
+}

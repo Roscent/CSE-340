@@ -26,4 +26,7 @@ router.get("/add-inventory", utilities.handleErrors(invController.buildAddInvent
 // Route to process new inventory data
 router.post("/add-inventory", invValidate.inventoryRules(), invValidate.checkNewInventory, utilities.handleErrors(invController.addInventory))
 
+// Route to get inventory as JSON (NEW)
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+
 module.exports = router;

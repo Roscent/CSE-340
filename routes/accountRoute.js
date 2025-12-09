@@ -8,7 +8,7 @@ const regValidate = require('../utilities/account-validation')
 router.get("/", utilities.handleErrors(accountController.buildLogin))
 router.get("/login", utilities.handleErrors(accountController.buildLogin))
 router.get("/register", utilities.handleErrors(accountController.buildRegister))
-
+router.get("/", utilities.checkLogin, utilities.handleErrors(accountController.buildManagement))
 // The path for the 'My Account' link is typically /account/login. 
 // When mounted at /account in server.js, the router handles /login.
 // We will use the explicit /login route here to clarify the path.
@@ -22,6 +22,14 @@ router.post(
   regValidate.registrationRules(),
   regValidate.checkRegData,
   utilities.handleErrors(accountController.registerAccount)
+)
+
+// Process the login request
+router.post(
+  "/login",
+  regValidate.loginRules(),
+  regValidate.checkLoginData,
+  utilities.handleErrors(accountController.accountLogin)
 )
 
 module.exports = router;
